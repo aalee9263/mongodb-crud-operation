@@ -1,16 +1,16 @@
 
-let name = document.querySelector("#name").value;
-let price = document.querySelector("#price").value;
-let cat = document.querySelector("#cat").value;
-let desc = document.querySelector("#desc").value;
+let name = document.querySelector("#name").value
+let price = document.querySelector("#price").value
+let cat = document.querySelector("#cat").value
+let desc = document.querySelector("#desc").value
 
 let addProduct = () => {
     
 axios.post('http://localhost:5001/product', {
   name: name,
   price: price,
-  category: category,
-  description: description
+  category: cat,
+  description: desc
 })  
   
 .then(function (response) {
@@ -26,7 +26,9 @@ axios.post('http://localhost:5001/product', {
 
   .catch(function (error) {
     
-    console.log(error);
+  console.log(error);
+  document.querySelector("#result").innerHTML =
+  error.data.message
   })
   }
 

@@ -73,7 +73,7 @@ app.get('/products', async (req, res) => {
           .exec();
 
       res.send({
-          message: "here is you todo list",
+          message: "here is you product list",
           data: data
       })
   } catch (e) {
@@ -145,7 +145,7 @@ app.put('/product/:id', async (req, res) => {
       console.log('updated: ', data);
 
       res.send({
-          message: "todo is updated successfully",
+          message: "product is updated successfully",
           data: data
       })
 
