@@ -1,16 +1,20 @@
 
-let cityName = document.querySelector("#cityName").value;
+let name = document.querySelector("#name").value;
+let price = document.querySelector("#price").value;
+let cat = document.querySelector("#cat").value;
+let desc = document.querySelector("#desc").value;
 
-let getWeather = () => {
+let addProduct = () => {
     
-        axios.get('http://localhost:5001/weather')  
-          .then(function (response) {
-            console.log(response.data);
-            })
+axios.post('http://localhost:5001/weather')  
+  
+.then(function (response) {
+  console.log(response.data);
+  })
 
   .catch(function (error) {
     
     console.log(error);
   })
-    }
+  }
 
