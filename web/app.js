@@ -6,11 +6,23 @@ let desc = document.querySelector("#desc").value;
 
 let addProduct = () => {
     
-axios.post('http://localhost:5001/weather')  
+axios.post('http://localhost:5001/product', {
+  name: name,
+  price: price,
+  category: category,
+  description: description
+})  
   
 .then(function (response) {
+  console.log("response is success");
   console.log(response.data);
-  })
+  
+  document.querySelector("#result").innerHTML =
+  response.data.message
+})
+
+
+
 
   .catch(function (error) {
     
