@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors'
 import mongoose from 'mongoose';
+import { exec } from 'child_process';
 
 
 
@@ -18,13 +19,13 @@ const productModel = mongoose.model('products', productSchema);
 
 
 const app = express()
-// app.use(cors())
+app.use(cors())
 app.use(express.json())
 
 const port = process.env.PORT || 5001;
 
 
-app.post("/product", (req, res) => {
+app.post('/product', (req, res) => {
 
   const body = req.body;
   if (
@@ -216,9 +217,8 @@ app.get('/weather', (req, res) => {
 
 
 const __dirname = path.resolve();
-
-app.get('/', express.static(path.join(__dirname,"/web")))
-app.use('/', express.static(path.join(__dirname,"/web")))
+app.get('/', express.static(path.join(__dirname, "/web")));
+app.use('/', express.static(path.join(__dirname, "/web")));
 
 
 
